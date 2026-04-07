@@ -1,7 +1,11 @@
 aid: carefusion
-url: https://raw.githubusercontent.com/api-evangelist/carefusion/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/carefusion/refs/heads/main/apis.yml
 modified: '2026-03-23'
 apis: []
 common:
   - type: Website
     url: https://www.carefusion.com
+description: >-
+  At BD, we seek to usher in a new era of healthcare by bringing medical products,
+  capabilities and solutions to every corner of the world.

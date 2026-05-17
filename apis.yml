@@ -15,7 +15,7 @@ description: >-
   modules and returns infusion status back to the EMR in near real
   time, using the Alaris Guardrails drug library as a safety layer.
 type: Index
-x-type: company
+kind: company
 position: Consumer
 access: Partner
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -116,9 +116,9 @@ common:
     url: https://www.bd.com/
   - type: Contact
     url: https://www.bd.com/en-us/about-bd/contact-us
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.bd.com/en-us/terms-of-use
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.bd.com/en-us/our-company/privacy
   - type: LinkedIn
     url: https://www.linkedin.com/company/bd1/

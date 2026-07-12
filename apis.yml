@@ -106,6 +106,8 @@ apis:
       - Drug diversion analytics and reporting
       - ADT-driven medication profile updates
 common:
+  - type: DomainSecurity
+    url: security/carefusion-domain-security.yml
   - type: Website
     url: https://www.bd.com/en-us/products-and-solutions/brand-families/carefusion
   - type: Alaris Product Page

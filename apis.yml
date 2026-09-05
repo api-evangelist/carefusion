@@ -152,3 +152,6 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: becton-dickinson
+x-relationship: acquisition
+x-acquired: 2015

@@ -1,0 +1,251 @@
+generated: '2026-09-06'
+method: probed
+source: >-
+  Live probes of every host this record knows — the registrable domain and www
+  (bd.com / www.bd.com, the Website and product-docs host), the CareFusion brand domain and
+  www (carefusion.com / www.carefusion.com), the Marketo landing host named in
+  apis[].properties (pages.carefusion.com) and its BD successor (go.bd.com), the surviving
+  CareFusion customer portal (rsscp.carefusion.com), and the two BD API-shaped hostnames that
+  resolve in DNS (api.bd.com, apis.bd.com).
+description: >-
+  NO /.well-known/ document is served on any host in the CareFusion record. CareFusion
+  publishes no API baseURL and no OpenAPI, so the probe set is the brand and corporate web
+  hosts plus every API-shaped hostname that resolves. Results by host: www.bd.com and bd.com
+  answer a genuine HTTP 404 (an 11,891-byte HTML error page) on every path — the Akamai edge
+  returns 403 Access Denied to a plain crawler user agent, so each 404 above was re-confirmed
+  with a browser-class request the edge does serve. www.carefusion.com 301s to www.bd.com and
+  inherits the same 404s; the carefusion.com apex has NO DNS record at all. pages.carefusion.com
+  (Marketo) and go.bd.com answer HTTP 200 to every path with an ~18KB marketing HTML shell,
+  and rsscp.carefusion.com (the AngularJS "BD - RSS Customer Portal" login) answers 200 with the
+  same 1,940-byte SPA shell for every path — these are catch-all HTML shells, NOT documents,
+  and are recorded as misses. api.bd.com resolves to a Microsoft Azure Application Gateway that
+  answers 502 Bad Gateway on every path (no backend); apis.bd.com resolves to 204.193.55.16 but
+  never completes a TCP handshake. NO WellKnown and NO SecurityTxt pointer is emitted from this
+  file — it records an ABSENCE. No A2A agent card exists on any host, so a2a/ is intentionally
+  empty rather than stubbed.
+hosts:
+  - host: www.bd.com
+    note: Website + product-documentation host. Genuine 404s, confirmed browser-class.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: bd.com
+    note: Apex; 301s to www.bd.com, which 404s every path.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: www.carefusion.com
+    note: CareFusion brand host; 301s to https://www.bd.com/ and inherits its 404s.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: carefusion.com
+    note: No DNS A record for the apex; every request fails to connect (curl exit, status 000).
+    documents:
+      - path: /.well-known/security.txt
+        status: 0
+      - path: /.well-known/openid-configuration
+        status: 0
+      - path: /.well-known/oauth-authorization-server
+        status: 0
+      - path: /.well-known/api-catalog
+        status: 0
+      - path: /.well-known/ai-plugin.json
+        status: 0
+      - path: /.well-known/agent-card.json
+        status: 0
+      - path: /.well-known/agent.json
+        status: 0
+  - host: pages.carefusion.com
+    note: >-
+      Marketo landing host (carefusioncorporation.mktoweb.com) named in
+      apis[].properties. Answers 200 to every path with an ~18KB marketing HTML shell —
+      a catch-all, not a document. Every entry below is a MISS.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: HTML shell (text/html, 17988 bytes), not a document.
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/api-catalog
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/agent-card.json
+        status: 200
+        note: HTML shell, not an AgentCard. No a2a/ artifact is written.
+      - path: /.well-known/agent.json
+        status: 200
+        note: HTML shell, not an AgentCard.
+  - host: go.bd.com
+    note: >-
+      BD successor to the pages.carefusion.com landing page (go.bd.com/AlarisInteroperability
+      is live, 200). Same Marketo catch-all shell on every /.well-known/ path — all misses.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/api-catalog
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: HTML shell, not a document.
+      - path: /.well-known/agent-card.json
+        status: 200
+        note: HTML shell, not an AgentCard.
+      - path: /.well-known/agent.json
+        status: 200
+        note: HTML shell, not an AgentCard.
+  - host: rsscp.carefusion.com
+    note: >-
+      "BD - RSS Customer Portal", an AngularJS single-page application on a surviving
+      carefusion.com host. Returns the identical 1,940-byte SPA shell (title
+      "BD - RSS Customer Portal") for every path including /openapi.json and /llms.txt —
+      the textbook SPA catch-all false positive. Every entry is a MISS.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: SPA shell, not a document.
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: SPA shell, not a document.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: SPA shell, not a document.
+      - path: /.well-known/api-catalog
+        status: 200
+        note: SPA shell, not a document.
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: SPA shell, not a document.
+      - path: /.well-known/agent-card.json
+        status: 200
+        note: SPA shell, not an AgentCard.
+      - path: /.well-known/agent.json
+        status: 200
+        note: SPA shell, not an AgentCard.
+  - host: api.bd.com
+    note: >-
+      Resolves to 52.224.186.193, a Microsoft Azure Application Gateway v2 that answers
+      502 Bad Gateway on every path — the hostname exists but has no live backend.
+    documents:
+      - path: /.well-known/security.txt
+        status: 502
+      - path: /.well-known/openid-configuration
+        status: 502
+      - path: /.well-known/oauth-authorization-server
+        status: 502
+      - path: /.well-known/api-catalog
+        status: 502
+      - path: /.well-known/ai-plugin.json
+        status: 502
+      - path: /.well-known/agent-card.json
+        status: 502
+      - path: /.well-known/agent.json
+        status: 502
+  - host: apis.bd.com
+    note: >-
+      Resolves to 204.193.55.16 but never completes a TCP handshake on 80 or 443; every
+      request times out (status 000).
+    documents:
+      - path: /.well-known/security.txt
+        status: 0
+      - path: /.well-known/openid-configuration
+        status: 0
+      - path: /.well-known/oauth-authorization-server
+        status: 0
+      - path: /.well-known/api-catalog
+        status: 0
+      - path: /.well-known/ai-plugin.json
+        status: 0
+      - path: /.well-known/agent-card.json
+        status: 0
+      - path: /.well-known/agent.json
+        status: 0
+contract_discovery:
+  note: >-
+    STEP 0b contract-discovery probes run alongside the /.well-known/ sweep. All missed.
+  probes:
+    - url: https://www.bd.com/openapi.json
+      status: 404
+    - url: https://www.bd.com/swagger.json
+      status: 404
+    - url: https://api.bd.com/openapi.json
+      status: 502
+    - url: https://apis.bd.com/openapi.json
+      status: 0
+    - url: https://rsscp.carefusion.com/openapi.json
+      status: 200
+      note: 1,940-byte AngularJS SPA shell, not OpenAPI.
+    - url: https://rsscp.carefusion.com/swagger.json
+      status: 200
+      note: SPA shell, not Swagger.
+    - url: https://www.bd.com/en-us/sitemap.xml
+      status: 200
+      note: >-
+        1,382 URLs. ZERO contain "carefusion", and none is a developer, API, swagger, openapi
+        or reference page. This is the strongest negative evidence in the record — BD's own
+        crawlable index of its US site names no developer surface at all.
+    - url: https://www.bd.com/robots.txt
+      status: 200
+      note: Names 30+ locale sitemaps; disallows only /login, /thank-you and query-string facets.
+  graphql: not-applicable
+  mcp: not-applicable
+  ogc: not-applicable
+  wsdl:
+    note: >-
+      No ?wsdl or ?singleWsdl surface exists — there is no baseURL host to probe. BD's SOAP-era
+      integration work for Alaris and Pyxis is delivered as per-site HL7 v2 interface
+      engineering, not as a published SOAP contract.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

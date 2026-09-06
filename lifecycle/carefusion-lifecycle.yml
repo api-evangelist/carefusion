@@ -1,0 +1,67 @@
+specification: API Commons Lifecycle
+specificationVersion: '0.1'
+provider: CareFusion (BD)
+providerId: carefusion
+generated: '2026-09-06'
+method: searched
+source: >-
+  https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=2 (Bulletins and Patches),
+  https://www.bd.com/en-us/about-bd/cybersecurity/patches/security-patches-bd-alaris-products,
+  https://www.bd.com/en-us/about-bd/cybersecurity/patches/security-patches-bd-pyxis-products
+description: >-
+  CareFusion has no API to version, so there is no API versioning scheme, no deprecation
+  policy, no Sunset/Deprecation header practice (RFC 8594) and no API status page. What BD
+  DOES publish for the CareFusion-descended product lines is a device-and-software lifecycle
+  surface: dated security bulletins and a product security patch feed for BD Alaris and BD
+  Pyxis, plus dated customer letters. That is the real, verifiable lifecycle signal for this
+  record and it is captured below. NO StatusPage and NO Deprecation pointer is emitted from
+  this file, because neither exists — an absence recorded, not a claim.
+api_versioning:
+  scheme: none
+  note: No public API surface exists, so no version scheme is published.
+deprecation_policy:
+  published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No RFC 8594 Sunset/Deprecation header practice and no written API deprecation policy.
+    Product end-of-life for Alaris and Pyxis hardware/software is communicated by dated
+    customer letters through BD account teams, not on a public developer page.
+status_page:
+  published: false
+  url: null
+  note: >-
+    No public status page for any CareFusion or BD Alaris/Pyxis service. Operational status
+    is handled through BD Customer Support (https://www.bd.com/en-us/support) and the
+    Medication Management customer login, neither of which publishes an uptime feed.
+sla:
+  published: false
+  note: SLAs are contractual, negotiated per hospital agreement; nothing is published.
+product_lifecycle:
+  - name: BD Alaris product security patches
+    url: https://www.bd.com/en-us/about-bd/cybersecurity/patches/security-patches-bd-alaris-products
+    status: 200
+    cadence: as-released
+    note: Per-product patch listings for the Alaris system (PC unit, pump/syringe/PCA modules, Systems Manager).
+  - name: BD Pyxis product security patches
+    url: https://www.bd.com/en-us/about-bd/cybersecurity/patches/security-patches-bd-pyxis-products
+    status: 200
+    cadence: as-released
+    note: Per-product patch listings for the Pyxis ES platform and MedStation.
+  - name: BD security bulletins index
+    url: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=2
+    status: 200
+    cadence: as-released
+    note: >-
+      Dated bulletins; the bd.com sitemap alone carries 11 Alaris-specific and 7
+      Pyxis-specific bulletin pages, including Alaris Gateway Workstation firmware,
+      Alaris system residual data, and Pyxis hardcoded/default credential advisories.
+changelog:
+  published: false
+  note: >-
+    No dated API or product changelog. The bulletin feed above is the closest published
+    equivalent and is a security-advisory feed, not a release changelog. No ChangeLog
+    pointer is emitted.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

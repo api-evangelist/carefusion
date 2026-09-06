@@ -1,0 +1,103 @@
+specification: API Commons Conformance
+specificationVersion: '0.1'
+provider: CareFusion (BD)
+providerId: carefusion
+generated: '2026-09-06'
+method: searched
+source: >-
+  https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-alaris-emr-interoperability
+  and https://www.bd.com/en-us/about-bd/cybersecurity
+description: >-
+  Standards posture for the CareFusion-descended BD product lines (BD Alaris EMR
+  Interoperability, BD Pyxis medication management), cross-checked against the `health`
+  regulatory-regime standards shortlist in scoring.yml (fhir, smart-on-fhir, us-core, uscdi,
+  da-vinci, carin-blue-button, fhir-bulk-data, cds-hooks, c-cda, hl7-v2, dicom).
+  CRITICAL QUALIFIER: CareFusion/BD publishes NO machine-readable contract of any kind — no
+  OpenAPI, no GraphQL SDL, no AsyncAPI, no WSDL, no .proto and no FHIR CapabilityStatement
+  (see well-known/carefusion-well-known.yml for the probe record and STEP 0b discovery). Every
+  interface-level entry below is therefore a documented product CLAIM, recorded with
+  conforms:false and claimed:true, and NOT a verified contract signature. The
+  security/compliance certifications are the only verified entries, because BD publishes the
+  certificates themselves. Nothing here is inferred from a spec, because there is no spec.
+conformance:
+  - id: hl7-v2
+    name: HL7 v2 messaging
+    conforms: false
+    claimed: true
+    verified: false
+    evidence: https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-alaris-emr-interoperability
+    note: >-
+      BD markets Alaris EMR Interoperability as EMR-to-pump order transmission with infusion
+      status returned to the EMR, and Pyxis as ADT/ORM/RDE/RDS-driven pharmacy integration —
+      the HL7 v2 message families. The interface specification is delivered to contracted
+      customers by BD interface-engineering teams; it is not published, so the conformance
+      cannot be verified from any artifact BD makes public.
+  - id: fhir
+    name: HL7 FHIR
+    conforms: false
+    claimed: true
+    verified: false
+    evidence: https://www.bd.com/en-us/dc/corporate/2025/bd-incada-platform
+    note: >-
+      BD's 2025 Incada Connected Care Platform announcement states EMR integration "via HL7
+      FHIR standards". Incada is a BD-level platform, not a CareFusion product, and no FHIR
+      CapabilityStatement or base URL is published for it. Recorded as a claim for context;
+      it is neither verified nor attributed to the CareFusion lines.
+  - id: iso-27001
+    name: ISO/IEC 27001:2022
+    conforms: true
+    verified: true
+    evidence: https://www.bd.com/content/dam/bd-assets/bd-com/en-us/document/cybersecurity/bd_certificate/bdx-bd-anz-iso-27001-primary-certificate-2025.pdf
+    note: Downloadable certificates, entity-scoped (BD ANZ, BD Germany, BD Israel).
+  - id: ul-2900-2-1
+    name: UL 2900-2-1 / UL Cybersecurity Assurance Program
+    conforms: true
+    verified: true
+    evidence: https://www.bd.com/content/dam/bd-assets/bd-com/en-us/document/cybersecurity/bd-synapsys/BD-Synapsys_v611_UL-2900-2-1_Certificate.pdf
+    note: Product-scoped to BD Synapsys v6.11, not to BD Alaris or BD Pyxis.
+  - id: soc2
+    name: SOC 2+ (Security, Availability)
+    conforms: true
+    verified: false
+    evidence: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=2
+    note: Asserted on the Trust Center; report is request-only.
+  - id: mds2
+    name: MDS2 — Manufacturer Disclosure Statement for Medical Device Security
+    conforms: true
+    verified: false
+    evidence: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=2
+    note: Delivered inside per-product Product Security White Papers, restricted to existing customers.
+  - id: cve-cna
+    name: CVE Numbering Authority (CVE Program)
+    conforms: true
+    verified: false
+    evidence: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=4
+    note: BD states it is authorized as a CNA and assigns CVE IDs for its own products.
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: false
+    verified: false
+    evidence: https://www.bd.com/.well-known/oauth-authorization-server
+    note: >-
+      No authorization-server metadata on any bd.com or carefusion.com host in the probe set;
+      the paths 403 at the Akamai edge or 404. No public API exists to secure.
+  - id: rfc9457
+    name: RFC 9457 Problem Details for HTTP APIs
+    conforms: false
+    verified: false
+    evidence: https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-alaris-emr-interoperability
+    note: No HTTP API and no error catalogue is published, so there is nothing to conform.
+domain_standard:
+  market: healthcare / medical device interoperability
+  regime: health
+  shortlist_probed: [fhir, smart-on-fhir, us-core, uscdi, da-vinci, carin-blue-button, fhir-bulk-data, cds-hooks, c-cda, hl7-v2, dicom]
+  signature_found: false
+  note: >-
+    REWARD-ONLY check, and it is not earned here. The domain standards for this market are real
+    (HL7 v2 and FHIR), and BD claims both in prose, but `domain_standard_conformance` reads the
+    CONTRACT — an HL7 message-type declaration, a FHIR CapabilityStatement, a conformance
+    resource. CareFusion/BD publishes none of these, so no signature can be recorded. This is
+    the honest gap, and it is the single highest-leverage thing BD could publish for this record.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,60 @@
+specification: API Commons Packages
+specificationVersion: '0.1'
+provider: CareFusion (BD)
+providerId: carefusion
+generated: '2026-09-06'
+method: searched
+source: >-
+  registry.npmjs.org/-/v1/search, pypi.org/pypi/<pkg>/json, rubygems.org/api/v1/gems/<pkg>.json,
+  crates.io/api/v1/crates, api.github.com/orgs/<org>, plus the BD product, support and
+  Knowledge Center pages for BD Alaris and BD Pyxis.
+description: >-
+  No first-party CareFusion or BD client library, SDK or CLI exists in any public package
+  registry. CareFusion is a BD medical-device brand: the Alaris infusion system and the
+  Pyxis dispensing line integrate with hospital EMR and pharmacy systems over HL7 v2
+  interfaces that BD interface-engineering teams configure per site under contract, not over
+  a downloadable SDK. Every registry was queried unauthenticated and the results are recorded
+  below. No `SDKs` and no `Packages` pointer is emitted from this file — it records an ABSENCE,
+  not a finding of software.
+package_count: 0
+official_package_count: 0
+packages: []
+registries_searched:
+  - registry: npm
+    endpoint: https://registry.npmjs.org/-/v1/search
+    queries: [carefusion, alaris, pyxis, bd-alaris, bd-pyxis]
+    first_party_hits: 0
+    note: >-
+      "carefusion" returns 0 results. "alaris" and "pyxis" return unrelated third-party
+      packages — n8n-nodes-alaris-sms, alaris-components, and the Prima Assicurazioni
+      "pyxis" design system (@prima-assicurazioni/pyxis-npm, pyxis-ui-kit, pyxis-scss).
+      None is published by BD or CareFusion.
+  - registry: pypi
+    endpoint: https://pypi.org/pypi/<name>/json
+    queries: [carefusion, alaris, pyxis]
+    first_party_hits: 0
+    note: >-
+      carefusion 404, alaris 404. "pyxis" is HTTP 200 but is Red Hat's container-metadata
+      client, unrelated to BD Pyxis — an exact name collision, not a first-party package.
+  - registry: rubygems
+    endpoint: https://rubygems.org/api/v1/gems/carefusion.json
+    queries: [carefusion]
+    first_party_hits: 0
+    note: HTTP 404.
+  - registry: crates.io
+    endpoint: https://crates.io/api/v1/crates?q=carefusion
+    queries: [carefusion]
+    first_party_hits: 0
+    note: '{"crates":[],"meta":{"total":0}} — zero results.'
+  - registry: github
+    endpoint: https://api.github.com/orgs/carefusion
+    queries: [carefusion, becton-dickinson]
+    first_party_hits: 0
+    note: >-
+      github.com/CareFusion resolves (HTTP 200) but is an EMPTY organization — created
+      2024-06-07, 0 public repositories, no name, description, website or verified domain.
+      Nothing attributes it to BD, and it publishes no code, so no GitHubOrganization
+      pointer is emitted for it. api.github.com/orgs/becton-dickinson returns 404.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

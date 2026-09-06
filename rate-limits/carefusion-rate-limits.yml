@@ -4,100 +4,39 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: CareFusion (BD)
 providerId: carefusion
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - Automated Dispensing
-  - BD
-  - CareFusion
-  - Connected Devices
-  - EMR Integration
-  - Healthcare
-  - HL7
-  - Infusion Pumps
-  - Medical Devices
-  - Pyxis
-  - Smart Pumps
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the CareFusion (BD) API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Alaris Infusion Interoperability
-      - Pyxis Automated Dispensing Integration
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Alaris Infusion Interoperability
-      - Pyxis Automated Dispensing Integration
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Alaris Infusion Interoperability
-      - Pyxis Automated Dispensing Integration
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Alaris Infusion Interoperability
-      - Pyxis Automated Dispensing Integration
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Alaris Infusion Interoperability
-      - Pyxis Automated Dispensing Integration
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+modified: '2026-09-06'
+generated: '2026-09-06'
+method: searched
+source: >-
+  https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-alaris-emr-interoperability
+  and the 1,382-URL bd.com/en-us sitemap
+description: >-
+  CareFusion (BD) documents NO rate limits, because it publishes no callable API. There is no
+  baseURL, no OpenAPI, no developer portal and no runtime surface on which a limit could be
+  signalled — no X-RateLimit-*, no RateLimit-*, no Retry-After, no 429. Alaris and Pyxis
+  integrate over HL7 v2 interfaces configured per hospital by BD interface-engineering teams,
+  where throughput is an engagement parameter rather than a published quota. limit_count is 0
+  and that is the measurement.
+  REPLACES a 2026-05-04 bulk-sweep scaffold that asserted 10/100/1,000 requests-per-minute
+  tiers, 1,000 and 100,000 monthly quotas, and a full X-RateLimit-*/429 header contract. None
+  of it came from BD. See roadmap#35.
+limit_count: 0
+limits: []
+headers: {}
+responseCodes: {}
+observed: false
+evidence:
+  - url: https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-alaris-emr-interoperability
+    status: 200
+    note: The interoperability product page; no limits, no headers, no endpoint.
+  - url: https://www.bd.com/en-us/sitemap.xml
+    status: 200
+    note: No developer, API reference or rate-limit page in the 1,382-URL US sitemap.
+  - url: https://api.bd.com/
+    status: 502
+    note: >-
+      The one API-shaped BD hostname that answers at all returns a Microsoft Azure
+      Application Gateway 502 — no live endpoint to observe a limit on.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

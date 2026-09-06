@@ -55,7 +55,7 @@ tags:
   - Pyxis
   - Smart Pumps
 created: '2026-03-23'
-modified: '2026-04-23'
+modified: '2026-09-06'
 specificationVersion: '0.23'
 apis:
   - aid: carefusion:alaris-infusion-interoperability
@@ -71,17 +71,19 @@ apis:
       provides the clinical decision support and safety layer that
       validates dose, concentration, and delivery parameters before a
       pump accepts an order.
-    humanURL: https://www.bd.com/en-us/products-and-solutions/products/product-families/alaris-infusion-system
+    humanURL: https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-alaris-emr-interoperability
     tags:
       - EMR Integration
       - HL7
       - Infusion Pumps
       - Medical Devices
     properties:
-      - url: https://www.bd.com/en-us/products-and-solutions/products/product-families/alaris-infusion-system
+      - url: https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-alaris-emr-interoperability
         type: Documentation
+      - url: https://go.bd.com/AlarisInteroperability
+        type: Solutions
       - url: https://pages.carefusion.com/AlarisInteroperability.html
-        type: Product
+        type: x-legacy-landing-page
     x-features:
       - EMR-to-pump order transmission for large-volume and syringe modules
       - Near real-time infusion status returned to the EMR
@@ -106,7 +108,7 @@ apis:
       interoperability services using HL7 v2 messaging (ADT, ORM,
       RDE, RDS) and direct pharmacy system connectors rather than a
       public REST API.
-    humanURL: https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-pyxis-medstation-es-system
+    humanURL: https://www.bd.com/en-us/products-and-solutions/products/product-brands/pyxis
     tags:
       - Automated Dispensing
       - EMR Integration
@@ -114,7 +116,7 @@ apis:
       - Pharmacy
       - Pyxis
     properties:
-      - url: https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-pyxis-medstation-es-system
+      - url: https://www.bd.com/en-us/products-and-solutions/products/product-brands/pyxis
         type: Documentation
     x-features:
       - Pharmacy system and EMR integration via HL7 v2
@@ -129,22 +131,36 @@ apis:
       - Drug diversion analytics and reporting
       - ADT-driven medication profile updates
 common:
+  - type: Website
+    url: https://www.bd.com/
+  - type: Solutions
+    url: https://www.bd.com/en-us/products-and-solutions/products/product-brands/alaris
+  - type: Solutions
+    url: https://www.bd.com/en-us/products-and-solutions/products/product-brands/pyxis
+  - type: Support
+    url: https://www.bd.com/en-us/support
+  - type: Contact
+    url: https://www.bd.com/en-us/support/contact-us
+  - type: TermsOfService
+    url: https://www.bd.com/en-us/about-bd/policies/terms-of-use
+  - type: PrivacyPolicy
+    url: https://www.bd.com/en-us/about-bd/policies/privacy-policy-statement
+  - type: Security
+    url: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=3
+  - type: VulnerabilityDisclosure
+    url: security/carefusion-vulnerability-disclosure.yml
+  - type: TrustCenter
+    url: security/carefusion-trust-center.yml
+  - type: Compliance
+    url: security/carefusion-trust-center.yml
+  - type: Conformance
+    url: conformance/carefusion-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/carefusion-lifecycle.yml
+  - type: LLMsTxt
+    url: llms/carefusion-llms.txt
   - type: DomainSecurity
     url: security/carefusion-domain-security.yml
-  - type: Website
-    url: https://www.bd.com/en-us/products-and-solutions/brand-families/carefusion
-  - type: Alaris Product Page
-    url: https://www.bd.com/en-us/products-and-solutions/products/product-families/alaris-infusion-system
-  - type: Pyxis Product Page
-    url: https://www.bd.com/en-us/products-and-solutions/products/product-families/bd-pyxis-medstation-es-system
-  - type: BD Corporate Site
-    url: https://www.bd.com/
-  - type: Contact
-    url: https://www.bd.com/en-us/about-bd/contact-us
-  - type: TermsOfService
-    url: https://www.bd.com/en-us/terms-of-use
-  - type: PrivacyPolicy
-    url: https://www.bd.com/en-us/our-company/privacy
   - type: LinkedIn
     url: https://www.linkedin.com/company/bd1/
   - type: X
@@ -155,3 +171,8 @@ maintainers:
 x-parent: becton-dickinson
 x-relationship: acquisition
 x-acquired: 2015
+x-enrichment:
+  date: '2026-09-06'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v3

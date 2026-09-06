@@ -1,0 +1,83 @@
+specification: API Commons Trust Center
+specificationVersion: '0.1'
+provider: CareFusion (BD)
+providerId: carefusion
+generated: '2026-09-06'
+method: searched
+source: https://www.bd.com/en-us/about-bd/cybersecurity
+description: >-
+  The BD Cybersecurity Trust Center is the published trust surface for the CareFusion-descended
+  product lines (BD Alaris, BD Pyxis). It carries downloadable third-party certifications, a
+  bulletins-and-patches feed with BD Alaris and BD Pyxis product pages, a coordinated
+  disclosure process, and supplier cyber requirements. It is a BD-domain document recorded on
+  the CareFusion record because BD owns the CareFusion brand and the trust center names the
+  CareFusion-descended products directly. Certification scope is uneven and is recorded as
+  such below: the ISO/IEC 27001:2022 certificates are entity-scoped (BD ANZ, BD Germany, BD
+  Israel), and the UL 2900-2-1 certificate is product-scoped to BD Synapsys — neither is a
+  CareFusion-product certificate, and neither is claimed as one here.
+trust_center:
+  name: BD Cybersecurity Trust Center
+  url: https://www.bd.com/en-us/about-bd/cybersecurity
+  status: 200
+  sections:
+    - name: About Us
+      url: https://www.bd.com/en-us/about-bd/cybersecurity
+    - name: Trust Center (certifications and attestations)
+      url: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=2
+    - name: Bulletins and Patches
+      url: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=2
+    - name: Disclosure Process
+      url: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=3
+    - name: Supplier Cyber Requirements
+      url: https://www.bd.com/en-us/about-bd/cybersecurity#suppliercyberrequirements
+    - name: Responsible AI Framework
+      url: https://www.bd.com/en-us/about-bd/cybersecurity
+certifications:
+  - name: ISO/IEC 27001:2022
+    scope: BD ANZ (primary), BD Germany (Becton Dickinson GmbH), BD Israel
+    verified: true
+    evidence: https://www.bd.com/content/dam/bd-assets/bd-com/en-us/document/cybersecurity/bd_certificate/bdx-bd-anz-iso-27001-primary-certificate-2025.pdf
+    evidence_status: 200
+    note: Downloadable certificate PDFs, entity-scoped rather than enterprise-wide.
+  - name: UL 2900-2-1 (UL Cybersecurity Assurance Program)
+    scope: BD Synapsys v6.11
+    verified: true
+    evidence: https://www.bd.com/content/dam/bd-assets/bd-com/en-us/document/cybersecurity/bd-synapsys/BD-Synapsys_v611_UL-2900-2-1_Certificate.pdf
+    evidence_status: 200
+    note: >-
+      Product-scoped to BD Synapsys (an informatics product), NOT to BD Alaris or BD Pyxis.
+      Recorded to show what BD actually publishes, not to credit the CareFusion lines.
+  - name: SOC 2+ (Security, Availability)
+    scope: BD cloud-based products
+    verified: false
+    evidence: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=2
+    evidence_status: 200
+    note: Asserted on the Trust Center; the report itself is request-only, so not independently readable.
+  - name: MDS2 (Manufacturer Disclosure Statement for Medical Device Security)
+    scope: Per BD product, including BD Alaris and BD Pyxis
+    verified: false
+    evidence: https://www.bd.com/en-us/about-bd/cybersecurity?active-tab=2
+    evidence_status: 200
+    note: >-
+      Delivered inside per-product Product Security White Papers, which BD restricts to
+      existing customers on request — the document itself is not publicly readable.
+memberships:
+  - AdvaMed
+  - AiSP (Association of Information Security Professionals)
+  - CCAPAC (Cybersecurity Coalition for Asia Pacific)
+  - CVE Program (BD is an authorized CNA)
+  - DSAC (Domestic Security Alliance Council)
+  - Health-ISAC
+  - HSCC Cybersecurity Working Group
+  - IMDRF
+  - MDIC (Medical Device Innovation Consortium)
+  - MedTech Europe Cybersecurity Working Group
+  - U.S. FBI InfraGard
+x-evidence:
+  fetched: '2026-09-06'
+  note: >-
+    All statuses confirmed with a browser-class request; the Akamai edge in front of bd.com
+    answers 403 Access Denied to a plain crawler user agent regardless of path.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

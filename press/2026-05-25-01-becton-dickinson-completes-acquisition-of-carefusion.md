@@ -1,7 +1,9 @@
 ---
 title: Becton Dickinson Completes Acquisition Of CareFusion
 url: https://www.prnewswire.com/news-releases/becton-dickinson-completes-acquisition-of-carefusion-300051582.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CareFusion" press release artificial intelligence'
 position: 1
 source: serpapi-google

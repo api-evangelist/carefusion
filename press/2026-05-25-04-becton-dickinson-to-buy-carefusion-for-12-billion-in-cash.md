@@ -1,7 +1,9 @@
 ---
 title: Becton Dickinson to buy CareFusion for $12 billion in cash, ...
 url: https://www.reuters.com/article/business/becton-dickinson-to-buy-carefusion-for-12-billion-in-cash-stock-idUSKCN0HU0U3/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CareFusion" press release artificial intelligence'
 position: 4
 source: serpapi-google
